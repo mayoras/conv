@@ -4,17 +4,15 @@
 
 CLI for dual-currency conversion made with Typescript and Deno.
 
-The API used in order to get the currency data is the FreecurrencyAPI
-(https://app.freecurrencyapi.com).
-
 # Table of Contents
 
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Options](#options)
-4. [Examples](#examples)
-5. [Contributing](#contributing)
-6. [License](#license)
+4. [API Usage](#api-usage)
+5. [Examples](#examples)
+6. [Contributing](#contributing)
+7. [License](#license)
 
 ## Installation
 
@@ -59,6 +57,29 @@ the command options available.
 > You have to provide for both `-f` and `-t` options its respectives currency
 > codes (capitalized, uncapitalized or mixed). You can see the list of
 > currencies supported with the `-l` option as seen above.
+
+## API Usage
+
+The API used in order to get the currency data is the FreecurrencyAPI
+(https://freecurrencyapi.com/). Unfortunately, this program does not offer a
+full dedicated API key(s) to provide a better user experience.
+
+You can still get a free API key signing up in their website
+https://freecurrencyapi.com/register. Then, you just need to export an
+environment variable `FC_API_KEY`.
+
+```sh
+export FC_API_KEY=<your-api-key>
+```
+
+As a convenience, you can export the variable automatically every time you start
+a shell editing your `.bashrc` file or equivalent shell.
+
+```bash
+# ~/.bashrc
+...
+export FC_API_KEY=<your-api-key>
+```
 
 ## Examples
 
