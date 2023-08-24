@@ -3,6 +3,7 @@
 *.swp
 .env
 
+dist/
 /.cargo_home/
 /.idea/
 /.vs/
