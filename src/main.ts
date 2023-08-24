@@ -1,8 +1,36 @@
-export function add(a: number, b: number): number {
-  return a + b;
+import chalk from "npm:chalk";
+import clear from "npm:clear";
+import figlet from "npm:figlet";
+
+import { askCurrencyPairs } from "./inquirer.ts";
+
+async function waitForKeyPressed(): Promise<string> {
+  const charBuffer = new Uint8Array(1);
+
+  await Deno.stdin.read(charBuffer);
+
+  return new TextDecoder().decode(charBuffer);
 }
 
-// Learn more at https://deno.land/manual/examples/module_metadata#concepts
-if (import.meta.main) {
-  console.log("Add 2 + 3 =", add(2, 3));
+async function main() {
+  clear();
+
+  console.log(
+    chalk.yellow(
+      figlet.textSync("$Conv$", { horizontalLayout: "full" }),
+    ),
+  );
+
+  const pair = await askCurrencyPairs();
+
+  if (pair === null) {
+    return;
+  }
+
+  const { from, to } = pair;
+  console.log(from, to);
+
+  console.log(await waitForKeyPressed());
 }
+
+main();
