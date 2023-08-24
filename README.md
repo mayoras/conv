@@ -4,14 +4,17 @@
 
 CLI for dual-currency conversion made with Typescript and Deno.
 
+The API used in order to get the currency data is the FreecurrencyAPI
+(https://app.freecurrencyapi.com).
+
 # Table of Contents
 
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Options](#options)
 4. [Examples](#examples)
-5. [Contributing]($contributing)
-6. [License]($license)
+5. [Contributing](#contributing)
+6. [License](#license)
 
 ## Installation
 
