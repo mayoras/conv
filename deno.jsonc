@@ -1,5 +1,6 @@
 {
   "tasks": {
+    "compile": "deno compile --output=dist/conv src/main.ts",
     "dev": "deno run --unstable --allow-env --allow-net --allow-read --allow-write src/main.ts",
     "watch": "deno run --allow-env --watch src/main.ts",
     "test": "deno test ./tests/",
