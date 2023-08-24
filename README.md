@@ -4,6 +4,15 @@
 
 CLI for dual-currency conversion made with Typescript and Deno.
 
+# Table of Contents
+
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [Options](#options)
+4. [Examples](#examples)
+5. [Contributing]($contributing)
+6. [License]($license)
+
 ## Installation
 
 This project was made with the Deno Javascript/Typescript runtime environment,
