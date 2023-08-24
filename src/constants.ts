@@ -7,5 +7,8 @@ export const FC_BASE_URL = ENV["FC_BASE_URL"];
 export const FC_API_VERSION = ENV["FC_API_VERSION"];
 export const FC_API_KEY = ENV["FC_API_KEY"];
 
-// TODO: put a list of all currencies available
-export const CURRENCY_CODES: string[] = await fetchAvailableCurrencies() || [];
+export const API_AUTH_ERR_TOL = 5;
+
+// INITIALIZATION DEAD ZONE
+export const CURRENCY_CODES: string[] = (await fetchAvailableCurrencies()) ||
+  [];
