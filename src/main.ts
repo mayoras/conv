@@ -1,25 +1,16 @@
-import chalk from "npm:chalk";
-import clear from "npm:clear";
-import figlet from "npm:figlet";
+import { load } from "std/dotenv/mod.ts";
 
 import { askCurrencyPairs } from "./inquirer.ts";
-
-async function waitForKeyPressed(): Promise<string> {
-  const charBuffer = new Uint8Array(1);
-
-  await Deno.stdin.read(charBuffer);
-
-  return new TextDecoder().decode(charBuffer);
-}
+import { showHeader } from "$app/src/lib/header.ts";
+import { waitForKeyPressed } from "$app/src/lib/misc.ts";
 
 async function main() {
-  clear();
+  // load env variables
+  await load({
+    export: true,
+  });
 
-  console.log(
-    chalk.yellow(
-      figlet.textSync("$Conv$", { horizontalLayout: "full" }),
-    ),
-  );
+  showHeader();
 
   const pair = await askCurrencyPairs();
 
