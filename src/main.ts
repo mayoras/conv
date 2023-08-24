@@ -1,20 +1,34 @@
 import { askCurrencyPairs } from "$app/src/inquirer.ts";
 import { showHeader } from "$app/src/lib/header.ts";
-import { waitForEnter } from "$app/src/lib/misc.ts";
+import { askRetry } from "$app/src/inquirer.ts";
+import { fetchConversion } from "$app/src/api.ts";
 
 async function main() {
   showHeader();
 
-  const pair = await askCurrencyPairs();
+  let retry = false;
+  do {
+    const pair = await askCurrencyPairs();
 
-  if (pair === null) {
-    return;
-  }
+    if (pair === null) {
+      return;
+    }
 
-  const { from, to } = pair;
-  console.log(from, to);
+    const { from, to } = pair;
 
-  console.log(await waitForEnter());
+    const fromToConversion = await fetchConversion(from, to);
+
+    if (fromToConversion === null) {
+      console.log("There was an error. Retrying ⏪");
+      continue;
+    }
+
+    console.log(`${from} = ${fromToConversion} ${to} 💱`);
+
+    retry = await askRetry();
+  } while (retry);
+
+  console.log("Bye 👋");
 }
 
 await main();

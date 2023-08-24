@@ -38,3 +38,21 @@ export async function askCurrencyPairs(): Promise<CurrencyPairType | null> {
     return null;
   }
 }
+
+export async function askRetry(): Promise<boolean> {
+  const q: QuestionCollection = [{
+    name: "retry",
+    type: "confirm",
+    message: "Retry?",
+  }];
+
+  try {
+    const { retry } = await inquirer.prompt(q);
+
+    return retry;
+  } catch (err) {
+    // finish if err
+    console.error("Error on inquirer.prompt", err);
+    return false;
+  }
+}
