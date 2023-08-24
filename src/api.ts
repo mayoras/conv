@@ -30,8 +30,6 @@ export async function fetchAvailableCurrencies(): Promise<
   try {
     let tol = 0;
     do {
-      ++tol;
-
       const res = await fetch(urlCurrencies, {
         headers: {
           "apikey": FC_API_KEY,
@@ -42,6 +40,8 @@ export async function fetchAvailableCurrencies(): Promise<
         const json = await res.json();
         if (Object.hasOwn(json, "data")) {
           return Object.keys(json.data);
+        } else {
+          ++tol;
         }
       } catch (err) {
         console.error("Error on json", err);
@@ -51,7 +51,47 @@ export async function fetchAvailableCurrencies(): Promise<
 
     return null;
   } catch (err) {
-    console.error("Error on `fetch`", err);
+    console.error("Error on `fetch` all currencies", err);
     return null;
   }
+}
+
+export async function fetchConversion(
+  from: string,
+  to: string,
+): Promise<string | null> {
+  const base = join(FC_BASE_URL, FC_API_VERSION, "latest");
+  const query = `?base_currency=${from}&currencies=${to}`;
+  const headers = {
+    "apikey": FC_API_KEY,
+  };
+
+  const url = base + query;
+
+  let tol = 0;
+  do {
+    try {
+      const res = await fetch(url, {
+        method: "GET",
+        headers,
+      });
+
+      try {
+        const json = await res.json();
+
+        if (Object.hasOwn(json, "data")) {
+          return json.data[to];
+        } else {
+          ++tol;
+        }
+      } catch (err) {
+        console.error("Error on `json`", err);
+        return null;
+      }
+    } catch (err) {
+      console.error("Error on `fetch` conversion", err);
+    }
+  } while (tol <= API_AUTH_ERR_TOL);
+
+  return null;
 }
