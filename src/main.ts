@@ -17,4 +17,6 @@ async function main() {
   console.log(await waitForEnter());
 }
 
-main();
+await main();
+
+console.log("Bye.");
