@@ -1,5 +1,10 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "dev": "deno run --watch main.ts",
+    "test": "deno test ./tests/",
+    "bench": "deno bench ./benchmarks/main_bench.ts"
+  },
+  "imports": {
+    "$app/": "./"
   }
 }
