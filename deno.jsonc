@@ -1,10 +1,12 @@
 {
   "tasks": {
-    "dev": "deno run --allow-env --watch src/main.ts",
+    "dev": "deno run --unstable --allow-env --allow-read --allow-write src/main.ts",
+    "watch": "deno run --allow-env --watch src/main.ts",
     "test": "deno test ./tests/",
     "bench": "deno bench ./benchmarks/main_bench.ts"
   },
   "imports": {
-    "$app/": "./"
+    "$app/": "./",
+    "std/": "https://deno.land/std@0.199.0/"
   }
 }
