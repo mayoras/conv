@@ -1,4 +1,4 @@
-import { add } from '$app/src/main.ts'
+import { add } from "$app/src/main.ts";
 
 Deno.bench(function addSmall() {
   add(1, 2);
