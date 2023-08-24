@@ -1,4 +1,4 @@
-import { askCurrencyPairs } from "./inquirer.ts";
+import { askCurrencyPairs } from "$app/src/inquirer.ts";
 import { showHeader } from "$app/src/lib/header.ts";
 import { waitForEnter } from "$app/src/lib/misc.ts";
 
