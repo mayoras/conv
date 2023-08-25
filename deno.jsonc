@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "compile": "deno compile --unstable -A --output=dist/conv src/main.ts",
+    "compile": "deno compile --unstable -A --output=dist/conv index.ts",
     "dev": "deno run --unstable -A index.ts",
     "watch": "deno run --allow-env --watch src/main.ts"
   }
