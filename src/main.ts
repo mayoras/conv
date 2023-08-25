@@ -1,7 +1,7 @@
-import { askCurrencyPairs } from "$app/src/inquirer.ts";
-import { showHeader } from "$app/src/lib/header.ts";
-import { askRetry } from "$app/src/inquirer.ts";
-import { fetchConversion } from "$app/src/api.ts";
+import { askCurrencyPairs } from "./inquirer.ts";
+import { showHeader } from "./lib/header.ts";
+import { askRetry } from "./inquirer.ts";
+import { fetchConversion } from "./api.ts";
 
 export async function main() {
   showHeader();

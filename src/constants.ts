@@ -1,5 +1,5 @@
-import { load } from "std/dotenv/mod.ts";
-import { fetchAvailableCurrencies } from "$app/src/api.ts";
+import { load } from "https://deno.land/std@0.200.0/dotenv/mod.ts";
+import { fetchAvailableCurrencies } from "./api.ts";
 
 const ENV = await load();
 

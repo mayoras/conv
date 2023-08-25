@@ -1,6 +1,6 @@
 // @deno-types="npm:@types/inquirer"
 import inquirer, { QuestionCollection } from "npm:inquirer";
-import { CURRENCY_CODES } from "$app/src/constants.ts";
+import { CURRENCY_CODES } from "./constants.ts";
 
 type CurrencyPairType = { from: string; to: string };
 

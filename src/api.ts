@@ -1,10 +1,10 @@
-import { join } from "std/path/mod.ts";
+import { join } from "https://deno.land/std@0.200.0/path/mod.ts";
 import {
   API_AUTH_ERR_TOL,
   FC_API_KEY,
   FC_API_VERSION,
   FC_BASE_URL,
-} from "$app/src/constants.ts";
+} from "./constants.ts";
 
 export async function fetchAll(): Promise<unknown> {
   const urlLatest = join(FC_BASE_URL, FC_API_VERSION, "latest");
