@@ -1,7 +1,7 @@
 {
   "tasks": {
     "compile": "deno compile -A --output=dist/conv src/main.ts",
-    "dev": "deno run --unstable --allow-env --allow-net --allow-read --allow-write src/main.ts",
+    "dev": "deno run --unstable -A index.ts",
     "watch": "deno run --allow-env --watch src/main.ts"
   },
   "imports": {

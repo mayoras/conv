@@ -3,7 +3,7 @@ import { showHeader } from "$app/src/lib/header.ts";
 import { askRetry } from "$app/src/inquirer.ts";
 import { fetchConversion } from "$app/src/api.ts";
 
-async function main() {
+export async function main() {
   showHeader();
 
   let retry = false;
@@ -30,5 +30,3 @@ async function main() {
 
   console.log("Bye 👋");
 }
-
-await main();
