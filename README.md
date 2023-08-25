@@ -31,7 +31,7 @@ the user _on the fly_ (when the program is running), so all you need to do is
 execute the program and follow the prompt instructions.
 
 ```sh
-$ conv
+conv
    _     ____                            _  
   | |   / ___|   ___    _ __   __   __  | | 
  / __) | |      / _ \  | '_ \  \ \ / / / __)
