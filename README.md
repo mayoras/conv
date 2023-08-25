@@ -64,9 +64,10 @@ The API used in order to get the currency data is the FreecurrencyAPI
 (https://freecurrencyapi.com/). Unfortunately, this program does not offer a
 full dedicated API key(s) to provide a better user experience.
 
-You can still get a free API key signing up in their website
-https://freecurrencyapi.com/register. Then, you just need to export an
-environment variable `FC_API_KEY`.
+You can still get a 100% free API key 🔑 signing up in their website
+https://freecurrencyapi.com/register.
+
+Next, you just need to export an environment variable `FC_API_KEY`.
 
 ```sh
 export FC_API_KEY=<your-api-key>
@@ -80,6 +81,8 @@ a shell editing your `.bashrc` file or equivalent shell.
 ...
 export FC_API_KEY=<your-api-key>
 ```
+
+Finally, just run `conv` and it should be ready to use 🚀.
 
 ## Examples
 
