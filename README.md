@@ -21,7 +21,7 @@ so make sure you have Deno installed on your system to install the `conv`. You
 can install Deno from https://deno.land/#installation.
 
 ```sh
-deno install -A -n conv https://deno.land/x/conv/main.ts
+deno install -A -n conv https://deno.land/x/conv/index.ts
 ```
 
 ## Usage
