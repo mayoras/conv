@@ -7,10 +7,8 @@ export async function loadEnvs() {
   let ENV = await load();
 
   if (Object.keys(ENV).length > 0) {
-    console.log("there is an env file");
     return ENV;
   } else {
-    console.log("there is not an env file");
     ENV = {
       FC_BASE_URL: DEFAULT_FC_BASE_URL,
       FC_API_VERSION: DEFAULT_FC_API_VERSION,
