@@ -6,7 +6,9 @@ export async function listAllCurrencies() {
   const currencies = await fetchAvailableCurrencies();
 
   if (currencies === null) {
-    throw new Error("Could not fetch currencies.");
+    // throw new Error("Could not fetch currencies.");
+    console.error("Could not fetch currencies.");
+    Deno.exit(1);
   }
 
   const numRows = Math.ceil(currencies.length / NUM_COLUMNS);
