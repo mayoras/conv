@@ -1,6 +1,8 @@
 import { fetchAvailableCurrencies } from "./api.ts";
 import { loadEnvs } from "./lib/env.ts";
 
+export const VERSION = "v0.2.0";
+
 export const ENV = await loadEnvs();
 
 export const FC_BASE_URL = ENV["FC_BASE_URL"];
