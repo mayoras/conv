@@ -19,7 +19,7 @@ const outputConversion = (
     return false;
   }
 
-  console.log(`${from} = ${conv} ${to} 💱`);
+  console.log(`${from} = ${conv} ${to} 💰`);
   return true;
 };
 
@@ -40,6 +40,7 @@ export async function main(args: string[]) {
       const fromToConversion = await fetchConversion(from, to);
 
       if (!outputConversion(from, to, fromToConversion)) {
+        retry = true;
         continue;
       }
 
@@ -54,7 +55,7 @@ export async function main(args: string[]) {
         "list",
         "lists the currencies available",
         {},
-        async (_argv: Arguments) => await listAllCurrencies(),
+        (_argv: Arguments) => listAllCurrencies(),
       )
       .option("from", {
         alias: "f",
