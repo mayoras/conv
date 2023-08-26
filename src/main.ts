@@ -94,10 +94,10 @@ export async function main(args: string[]) {
       .showHelpOnFail(true)
       .strict();
     ya.$0 = "conv";
-    const argsParsed: Arguments = ya.parse();
+    const argsParsed: Arguments = await ya.parse();
 
     // console.log(argsParsed);
-    const [from, to, conv] = await dispatchArgs(argsParsed, ya);
+    const { from, to, conv } = await dispatchArgs(argsParsed, ya);
 
     outputConversion(from, to, conv);
   }
