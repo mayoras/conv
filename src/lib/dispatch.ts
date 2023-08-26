@@ -1,6 +1,11 @@
 import { YargsInstance } from "https://deno.land/x/yargs@v17.7.2-deno/build/lib/yargs-factory.js";
 import { Arguments } from "https://deno.land/x/yargs@v17.7.2-deno/deno-types.ts";
 import { fetchConversion } from "../api.ts";
+import { logError } from "./misc.ts";
+
+function optionIsValid(opt: unknown): boolean {
+  return (opt !== undefined && opt !== "" && opt !== null);
+}
 
 export async function dispatchArgs(
   args: Arguments,
@@ -10,9 +15,10 @@ export async function dispatchArgs(
   to: string;
   conv: string | null;
 }> {
-  if (args.from !== undefined && args.to === undefined) {
+  if (optionIsValid(args.from) && !optionIsValid(args.to)) {
+    // console.error("Cannot make a conversion with `to` currency undefined");
+    logError("Cannot make a conversion with `to` currency undefined.");
     ya.showHelp();
-    console.error("Cannot make a conversion with `to` currency undefined");
     Deno.exit(1);
   }
 
