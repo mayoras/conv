@@ -52,11 +52,17 @@ the command options available.
 
 - `-f, --from`: Set the _from_ currency, i.e. the base currency.
 - `-t, --to`: Set the _to_ currency, i.e. the converted currency.
-- `-l, --list-currency`: Lists the currencies available.
 
 > You have to provide for both `-f` and `-t` options its respectives currency
 > codes (capitalized, uncapitalized or mixed). You can see the list of
-> currencies supported with the `-l` option as seen above.
+> currencies supported with the `list` command as seen in the section below.
+
+## Commands
+
+`conv` also includes the following commands.
+
+- `list`: Lists the currencies available.
+- `help`: Shows the options and commands and their description.
 
 ## API Usage
 
@@ -65,8 +71,8 @@ The API used in order to get the currency data is the FreecurrencyAPI
 full dedicated API key(s) to provide a better user experience.
 
 However, you can still get a 100% free API key 🔑 by signing up in their website
-https://freecurrencyapi.com/register. When you successfully register, you will get a
-key that you can use with this application.
+https://freecurrencyapi.com/register. When you successfully register, you will
+get a key that you can use with this application.
 
 Next, you just need to export an environment variable `FC_API_KEY`.
 
