@@ -48,7 +48,7 @@ export async function main(args: string[]) {
 
     console.log("Bye 👋");
   } else {
-    const ya = await yargs(Deno.args)
+    const ya = yargs(Deno.args)
       .usage("Usage: $0 [COMMAND|-f [string] -t [string]]")
       .command(
         "list",
