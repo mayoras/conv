@@ -76,13 +76,13 @@ export async function main(args: string[]) {
           return true;
         }
       })
-      .check((_argv: Arguments, _options: never) => {
+      .check((argv: Arguments, _options: never) => {
         const userFrom = Deno.args.find((opt) =>
           opt.includes("--from") || opt.includes("-f")
         );
 
         // if user did not specified from currency
-        if (userFrom === undefined) {
+        if (userFrom === undefined && argv.to !== undefined) {
           logWarning("Using EUR as default from currency.");
         }
 
