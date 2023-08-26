@@ -236,7 +236,8 @@
       "configstore": "configstore@6.0.0",
       "figlet": "figlet@1.6.0",
       "inquirer": "inquirer@9.2.10",
-      "minimist": "minimist@1.2.8"
+      "minimist": "minimist@1.2.8",
+      "ora": "ora@5.4.1"
     },
     "packages": {
       "@ljharb/through@2.3.9": {
