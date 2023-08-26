@@ -5,6 +5,7 @@ import {
   FC_API_VERSION,
   FC_BASE_URL,
 } from "./constants.ts";
+import { failLoading, startLoading, successLoading } from "./lib/loading.ts";
 
 export async function fetchAll(): Promise<unknown> {
   const urlLatest = join(FC_BASE_URL, FC_API_VERSION, "latest");
@@ -25,6 +26,8 @@ export async function fetchAll(): Promise<unknown> {
 export async function fetchAvailableCurrencies(): Promise<
   string[] | null
 > {
+  const spinner = startLoading("Fetching currencies 💸...");
+
   const urlCurrencies = join(FC_BASE_URL, FC_API_VERSION, "currencies");
 
   try {
@@ -39,18 +42,22 @@ export async function fetchAvailableCurrencies(): Promise<
       try {
         const json = await res.json();
         if (Object.hasOwn(json, "data")) {
+          successLoading(spinner, "Fetched 📥");
           return Object.keys(json.data);
         } else {
           ++tol;
         }
       } catch (err) {
+        failLoading(spinner);
         console.error("Error on json", err);
         return null;
       }
     } while (tol <= API_AUTH_ERR_TOL);
 
+    failLoading(spinner);
     return null;
   } catch (err) {
+    failLoading(spinner);
     console.error("Error on `fetch` all currencies", err);
     return null;
   }
@@ -60,6 +67,8 @@ export async function fetchConversion(
   from: string,
   to: string,
 ): Promise<string | null> {
+  const spinner = startLoading("Converting 💱...");
+
   const base = join(FC_BASE_URL, FC_API_VERSION, "latest");
   const query = `?base_currency=${from}&currencies=${to}`;
   const headers = {
@@ -80,18 +89,22 @@ export async function fetchConversion(
         const json = await res.json();
 
         if (Object.hasOwn(json, "data")) {
+          successLoading(spinner);
           return json.data[to];
         } else {
           ++tol;
         }
       } catch (err) {
+        failLoading(spinner);
         console.error("Error on `json`", err);
         return null;
       }
     } catch (err) {
+      failLoading(spinner);
       console.error("Error on `fetch` conversion", err);
     }
   } while (tol <= API_AUTH_ERR_TOL);
 
+  failLoading(spinner);
   return null;
 }
