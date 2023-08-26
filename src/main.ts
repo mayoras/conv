@@ -5,7 +5,7 @@ import { showHeader } from "./lib/header.ts";
 import { askRetry } from "./inquirer.ts";
 import { fetchConversion } from "./api.ts";
 import { VERSION } from "./constants.ts";
-import { dispatchArgs } from "./lib/dispatch.ts";
+import { dispatchArgs } from "./dispatch.ts";
 import { listAllCurrencies } from "./lib/commands/list.ts";
 import { logWarning } from "./lib/misc.ts";
 
