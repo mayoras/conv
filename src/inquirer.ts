@@ -1,6 +1,7 @@
 // @deno-types="npm:@types/inquirer"
 import inquirer, { QuestionCollection } from "npm:inquirer";
 import { CURRENCY_CODES } from "./constants.ts";
+import { logError } from "./lib/misc.ts";
 
 type CurrencyPairType = { from: string; to: string };
 
@@ -33,8 +34,8 @@ export async function askCurrencyPairs(): Promise<CurrencyPairType | null> {
     }
 
     return answers as CurrencyPairType;
-  } catch (err) {
-    console.error("Error on inquirer.prompt", err);
+  } catch (_err) {
+    logError("Error on inquirer.prompt");
     return null;
   }
 }
@@ -50,9 +51,9 @@ export async function askRetry(): Promise<boolean> {
     const { retry } = await inquirer.prompt(q);
 
     return retry;
-  } catch (err) {
+  } catch (_err) {
     // finish if err
-    console.error("Error on inquirer.prompt", err);
+    logError("Error on inquirer.prompt");
     return false;
   }
 }

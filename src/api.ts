@@ -6,6 +6,7 @@ import {
   FC_BASE_URL,
 } from "./constants.ts";
 import { failLoading, startLoading, successLoading } from "./lib/loading.ts";
+import { logError } from "./lib/misc.ts";
 
 export async function fetchAll(): Promise<unknown> {
   const urlLatest = join(FC_BASE_URL, FC_API_VERSION, "latest");
@@ -18,8 +19,8 @@ export async function fetchAll(): Promise<unknown> {
     });
 
     return await res.json();
-  } catch (err) {
-    console.error("Error on `fetch`", err);
+  } catch (_err) {
+    logError("Error on `fetch`");
   }
 }
 
@@ -47,18 +48,18 @@ export async function fetchAvailableCurrencies(): Promise<
         } else {
           ++tol;
         }
-      } catch (err) {
+      } catch (_err) {
         failLoading(spinner);
-        console.error("Error on json", err);
+        logError("Error on `json`");
         return null;
       }
     } while (tol <= API_AUTH_ERR_TOL);
 
     failLoading(spinner);
     return null;
-  } catch (err) {
+  } catch (_err) {
     failLoading(spinner);
-    console.error("Error on `fetch` all currencies", err);
+    logError("Error on `fetch` all currencies");
     return null;
   }
 }
@@ -94,14 +95,14 @@ export async function fetchConversion(
         } else {
           ++tol;
         }
-      } catch (err) {
+      } catch (_err) {
         failLoading(spinner);
-        console.error("Error on `json`", err);
+        logError("Error on `json`");
         return null;
       }
-    } catch (err) {
+    } catch (_err) {
       failLoading(spinner);
-      console.error("Error on `fetch` conversion", err);
+      logError("Error on `fetch` conversion");
     }
   } while (tol <= API_AUTH_ERR_TOL);
 

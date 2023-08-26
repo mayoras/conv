@@ -1,11 +1,12 @@
 import { CURRENCY_CODES } from "../../constants.ts";
+import { logError } from "../misc.ts";
 
 const NUM_COLUMNS = 3;
 
 export function listAllCurrencies() {
   if (CURRENCY_CODES.length === 0) {
     // throw new Error("Could not fetch currencies.");
-    console.error("Could not fetch currencies.");
+    logError("Could not fetch currencies.");
     Deno.exit(1);
   }
 

@@ -1,4 +1,5 @@
 import { load } from "https://deno.land/std@0.200.0/dotenv/mod.ts";
+import { logError } from "./misc.ts";
 
 export const DEFAULT_FC_BASE_URL = "https://api.freecurrencyapi.com";
 export const DEFAULT_FC_API_VERSION = "v1";
@@ -23,7 +24,7 @@ export async function loadEnvs() {
     } else {
       const message =
         "FC_API_KEY have not been found.\nPlease provide an API key exporting an FC_API_KEY environment variable.\nFollow instructions on https://github.com/mayoras/conv#api-usage for further information.";
-      console.error(message);
+      logError(message);
       Deno.exit(1);
     }
 

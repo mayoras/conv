@@ -16,7 +16,6 @@ export async function dispatchArgs(
   conv: string | null;
 }> {
   if (optionIsValid(args.from) && !optionIsValid(args.to)) {
-    // console.error("Cannot make a conversion with `to` currency undefined");
     logError("Cannot make a conversion with `to` currency undefined.");
     ya.showHelp();
     Deno.exit(1);
