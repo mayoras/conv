@@ -64,8 +64,9 @@ The API used in order to get the currency data is the FreecurrencyAPI
 (https://freecurrencyapi.com/). Unfortunately, this program does not offer a
 full dedicated API key(s) to provide a better user experience.
 
-You can still get a 100% free API key 🔑 signing up in their website
-https://freecurrencyapi.com/register.
+However, you can still get a 100% free API key 🔑 by signing up in their website
+https://freecurrencyapi.com/register. When you successfully register, you will get a
+key that you can use with this application.
 
 Next, you just need to export an environment variable `FC_API_KEY`.
 
